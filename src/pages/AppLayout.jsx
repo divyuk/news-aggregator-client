@@ -1,5 +1,12 @@
+import styles from "./AppLayout.module.css";
+import Header from "../components/Header";
+
 function AppLayout() {
-  return <div>This is app layout</div>;
+  return (
+    <div className={styles.app}>
+      <Header />
+    </div>
+  );
 }
 
 export default AppLayout;
