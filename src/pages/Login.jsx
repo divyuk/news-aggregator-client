@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthenticationContext";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function Login() {
   const { login, isAuthenticated } = useAuth();
@@ -18,6 +19,7 @@ function Login() {
   }, [isAuthenticated, navigate]);
   return (
     <main>
+      <ToastContainer />
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
