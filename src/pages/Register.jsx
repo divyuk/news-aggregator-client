@@ -15,7 +15,7 @@ function Register() {
   }
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/app", { replace: true });
+    if (isAuthenticated) navigate("/login", { replace: true });
   }, [isAuthenticated, navigate]);
 
   return (

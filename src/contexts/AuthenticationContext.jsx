@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
-import { registerUser } from "../utility/userService";
+import { loginUser, registerUser } from "../utility/userService";
 import { toast } from "react-toastify";
 
 //  Create the setting for Authentication Context.
@@ -15,6 +15,8 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "register":
+      return { ...state, user: action.payload, isAuthenticated: true };
+    case "login":
       return { ...state, user: action.payload, isAuthenticated: true };
     default:
       throw new Error("Unknown action");
@@ -40,8 +42,17 @@ function AuthProvider({ children }) {
     }
   }
 
+  async function login(email, password) {
+    try {
+      await loginUser(email, password);
+      dispatch({ type: "login", payload: { email, password } });
+    } catch (err) {
+      console.log("Error : ", err.message);
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, register }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, register, login }}>
       {children}
     </AuthContext.Provider>
   );

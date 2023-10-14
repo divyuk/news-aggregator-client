@@ -8,7 +8,7 @@ function HomePage() {
       </section>
       <section>
         <h1>Welcome to News App</h1>
-        <p>This is where you know where you know Gossips of the World</p>
+        <p>This is where you know Gossips of the World 📃</p>
       </section>
     </main>
   );

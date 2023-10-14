@@ -12,7 +12,7 @@ axios.interceptors.response.use(
       const { status, data } = error.response;
       if (status === 401) {
         // Handle 401 Unauthorized (e.g., redirect to login)
-        toast.error("Unauthorized");
+        toast.error("Incorrect email or password");
       } else if (status === 403) {
         // Handle 403 Forbidden (e.g., redirect to access denied)
         toast.error("Forbidden");

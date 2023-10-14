@@ -1,8 +1,16 @@
 import api from "./api";
 
-const REGISTER_URL = import.meta.env.VITE_BASEURL;
+const BASEURL = import.meta.env.VITE_BASEURL;
+
 export async function registerUser(email, password) {
-  await api.post(`${REGISTER_URL}/api/v1/users/register`, {
+  await api.post(`${BASEURL}/api/v1/users/register`, {
+    email,
+    password,
+  });
+}
+
+export async function loginUser(email, password) {
+  await api.post(`${BASEURL}/api/v1/users/login`, {
     email,
     password,
   });
