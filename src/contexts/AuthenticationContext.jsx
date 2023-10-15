@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
-import { loginUser, registerUser } from "../utility/userService";
+import { getNews, loginUser, registerUser } from "../utility/userService";
 import { toast } from "react-toastify";
 
 //  Create the setting for Authentication Context.
@@ -44,15 +44,25 @@ function AuthProvider({ children }) {
 
   async function login(email, password) {
     try {
-      await loginUser(email, password);
-      dispatch({ type: "login", payload: { email, password } });
+      const token = await loginUser(email, password);
+      dispatch({ type: "login", payload: { email, password, token } });
     } catch (err) {
       console.log("Error : ", err.message);
     }
   }
 
+  async function fetchNews() {
+    try {
+      const response = await getNews(user.token);
+      return response.data.results;
+    } catch (error) {
+      console.log("Error :", error);
+    }
+  }
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, register, login }}>
+    <AuthContext.Provider
+      value={{ user, isAuthenticated, register, login, fetchNews }}
+    >
       {children}
     </AuthContext.Provider>
   );

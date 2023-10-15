@@ -10,8 +10,19 @@ export async function registerUser(email, password) {
 }
 
 export async function loginUser(email, password) {
-  await api.post(`${BASEURL}/api/v1/users/login`, {
+  const response = await api.post(`${BASEURL}/api/v1/users/login`, {
     email,
     password,
   });
+  const token = response.data.token;
+  return token;
+}
+export async function getNews(token) {
+  const response = await api.get(`${BASEURL}/api/v1/news`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
 }
