@@ -1,0 +1,57 @@
+.card {
+  list-style: none;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  background-color: transparent; /* Initial background color */
+  cursor: pointer; /* Add a pointer cursor to indicate clickability */
+  transition: background-color 0.3s; /* Add a smooth transition */
+}
+
+.material-symbols-outlined.clicked {
+  background-color: red; /* Background color when clicked */
+}
+
+/* Parts are from twitter.com */
+
+.HeartAnimation {
+  display: inline-block;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/66955/web_heart_animation.png");
+  background-repeat: no-repeat;
+  background-size: 2900%;
+  background-position: left;
+  height: 70px;
+  width: 70px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.animate {
+  animation: heart-burst 0.8s steps(28) forwards;
+}
+
+@keyframes heart-burst {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.CheckAnimation {
+  display: inline-block;
+  background-image: url("/checkGrey.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: left;
+  height: 35px;
+  width: 35px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: background-image 0.3s;
+}
+
+.animateCheck {
+  background-image: url("/checkBlue.svg");
+}

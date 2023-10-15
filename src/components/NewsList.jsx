@@ -1,6 +1,7 @@
 import styles from "./NewsList.module.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthenticationContext";
+import NewsCard from "./NewsCard";
 
 function NewsList() {
   const [newsData, setNewsData] = useState([]);
@@ -18,8 +19,8 @@ function NewsList() {
   }, [fetchNews]);
   return (
     <ul className={styles.newsList}>
-      {newsData.map((news) => (
-        <p key={news.article_id}>{news.title}</p>
+      {newsData.map((news, index) => (
+        <NewsCard key={index} news={news} />
       ))}
     </ul>
   );

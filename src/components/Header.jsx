@@ -4,11 +4,13 @@ import styles from "./Header.module.css";
 import { Outlet } from "react-router-dom";
 function Header() {
   return (
-    <div className={styles.header}>
-      <Logo />
-      <Heading />
+    <>
+      <div className={styles.header}>
+        <Logo />
+        <Heading />
+      </div>
       <Outlet />
-    </div>
+    </>
   );
 }
 
