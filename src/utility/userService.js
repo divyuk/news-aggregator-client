@@ -26,3 +26,11 @@ export async function getNews(token) {
 
   return response.data;
 }
+
+export async function postFavourite(token, id, news) {
+  await api.post(`${BASEURL}/api/v1/news/:${id}/favourite`, news, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
