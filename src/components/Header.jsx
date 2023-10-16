@@ -2,6 +2,7 @@ import Heading from "./Heading";
 import Logo from "./Logo";
 import styles from "./Header.module.css";
 import { Outlet } from "react-router-dom";
+import Preferences from "./Preferences";
 function Header() {
   return (
     <>
@@ -9,6 +10,7 @@ function Header() {
         <Logo />
         <Heading />
       </div>
+      <Preferences />
       <Outlet />
     </>
   );
