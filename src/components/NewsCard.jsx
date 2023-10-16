@@ -1,20 +1,21 @@
 import { useState } from "react";
 import styles from "./NewsCard.module.css";
+import { useAuth } from "../contexts/AuthenticationContext";
 function NewsCard({ news }) {
-  const { title, link, description, content, pubDate } = news;
+  const { article_id, title, link, description, content, pubDate } = news;
   const [read, setRead] = useState(false);
-
+  const { sendFavourite } = useAuth();
   const [isAnimatingFav, setIsAnimatingFav] = useState(false);
   const [isAnimatingCheck, setIsAnimatingCheck] = useState(false);
 
   const heartAnimationClass = styles.HeartAnimation;
   const animateClass = isAnimatingFav ? styles.animate : "";
-
   const checkAnimationClass = styles.CheckAnimation;
   const checkAnimateClass = isAnimatingCheck ? styles.animateCheck : "";
 
-  const handleFav = () => {
+  const handleFav = async () => {
     setIsAnimatingFav(!isAnimatingFav);
+    if (isAnimatingFav) await sendFavourite(article_id, news);
   };
 
   const handleCheck = () => {
@@ -30,6 +31,7 @@ function NewsCard({ news }) {
         <p>{description}</p>
         {read && <p>{content}</p>}
       </li>
+
       <button onClick={() => setRead(!read)}>
         {read ? "Read Less" : "Read More"}
       </button>
