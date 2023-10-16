@@ -14,8 +14,19 @@ function Register() {
     if (emailID && password) register(emailID, password);
   }
 
+  // useEffect(() => {
+  //   if (isAuthenticated) navigate("/", { replace: true });
+  // }, [isAuthenticated, navigate]);
+
+  // Performing a hard reload also
   useEffect(() => {
-    if (isAuthenticated) navigate("/login", { replace: true });
+    if (isAuthenticated) {
+      // Navigate to the homepage
+      navigate("/");
+
+      // Perform a hard reload of the homepage
+      window.location.reload(true);
+    }
   }, [isAuthenticated, navigate]);
 
   return (
