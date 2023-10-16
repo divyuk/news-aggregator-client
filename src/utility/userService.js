@@ -28,7 +28,15 @@ export async function getNews(token) {
 }
 
 export async function postFavourite(token, id, news) {
-  await api.post(`${BASEURL}/api/v1/news/:${id}/favourite`, news, {
+  await api.post(`${BASEURL}/api/v1/news/${id}/favourite`, news, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export async function deleteNews(token, id, type) {
+  await api.delete(`${BASEURL}/api/v1/news/${id}/${type}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

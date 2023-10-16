@@ -73,6 +73,14 @@ function AuthProvider({ children }) {
     }
   }
 
+  async function deleteNews(id, type) {
+    try {
+      await deleteNews(user.token, id, type);
+    } catch (error) {
+      console.log("Error : ", error);
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -82,6 +90,7 @@ function AuthProvider({ children }) {
         login,
         fetchNews,
         sendFavourite,
+        deleteNews,
       }}
     >
       {children}
