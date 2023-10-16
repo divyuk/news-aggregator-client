@@ -1,22 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./NewsCard.module.css";
 import { useAuth } from "../contexts/AuthenticationContext";
 function NewsCard({ news }) {
   const { article_id, title, link, description, content, pubDate } = news;
+
   const [read, setRead] = useState(false);
-  const { sendFavourite } = useAuth();
   const [isAnimatingFav, setIsAnimatingFav] = useState(false);
   const [isAnimatingCheck, setIsAnimatingCheck] = useState(false);
+
+  const { sendFavourite, deleteNews } = useAuth();
 
   const heartAnimationClass = styles.HeartAnimation;
   const animateClass = isAnimatingFav ? styles.animate : "";
   const checkAnimationClass = styles.CheckAnimation;
   const checkAnimateClass = isAnimatingCheck ? styles.animateCheck : "";
 
+  //! TODO : Need to work on the handleFav
   const handleFav = async () => {
+    if (!isAnimatingFav) {
+      await sendFavourite(article_id, news);
+    } else {
+      await deleteNews(article_id, "favourite");
+    }
     setIsAnimatingFav(!isAnimatingFav);
-    if (isAnimatingFav) await sendFavourite(article_id, news);
   };
+
+  // const handleFav = async () => {
+  //   setIsAnimatingFav(!isAnimatingFav);
+  // };
+
+  // useEffect(() => {
+  //   const callFavourite = async () => {
+  //     if (isAnimatingFav) await sendFavourite(article_id, news);
+  //     else await deleteNews(article_id, "favourite");
+  //   };
+  //   callFavourite();
+  // }, [isAnimatingFav]);
 
   const handleCheck = () => {
     setIsAnimatingCheck(!isAnimatingCheck);
