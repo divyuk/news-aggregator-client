@@ -1,5 +1,10 @@
 import { createContext, useContext, useReducer } from "react";
-import { getNews, loginUser, registerUser } from "../utility/userService";
+import {
+  getNews,
+  loginUser,
+  postFavourite,
+  registerUser,
+} from "../utility/userService";
 import { toast } from "react-toastify";
 
 //  Create the setting for Authentication Context.
@@ -59,9 +64,25 @@ function AuthProvider({ children }) {
       console.log("Error :", error);
     }
   }
+
+  async function sendFavourite(id, news) {
+    try {
+      await postFavourite(user.token, id, news);
+    } catch (error) {
+      console.log("Error : ", error);
+    }
+  }
+
   return (
     <AuthContext.Provider
-      value={{ user, isAuthenticated, register, login, fetchNews }}
+      value={{
+        user,
+        isAuthenticated,
+        register,
+        login,
+        fetchNews,
+        sendFavourite,
+      }}
     >
       {children}
     </AuthContext.Provider>
