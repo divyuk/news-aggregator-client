@@ -10,7 +10,7 @@ function Header() {
         <Logo />
         <Heading />
       </div>
-      <Preferences />
+      {/* <Preferences /> */}
       <Outlet />
     </>
   );
