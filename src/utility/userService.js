@@ -17,8 +17,10 @@ export async function loginUser(email, password) {
   const token = response.data.token;
   return token;
 }
-export async function getNews(token) {
-  const response = await api.get(`${BASEURL}/api/v1/news`, {
+export async function getNews(token, category) {
+  let baseUrl = `${BASEURL}/api/v1/news`;
+  if (category) baseUrl += `&category=${category}`;
+  const response = await api.get(baseUrl, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
