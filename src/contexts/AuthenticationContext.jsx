@@ -13,6 +13,9 @@ const AuthContext = createContext();
 // user = { email: , password: , token: ,  category:   }
 const initialState = {
   user: null,
+  categories: [],
+  languages: [],
+  countries: [],
   isAuthenticated: false,
 };
 
@@ -24,7 +27,11 @@ function reducer(state, action) {
     case "login":
       return { ...state, user: action.payload, isAuthenticated: true };
     case "updateCategory":
-      return { ...state, user: action.payload, isAuthenticated: true };
+      return { ...state, categories: action.payload };
+    case "updateLanguage":
+      return { ...state, languages: action.payload };
+    case "updateCountry":
+      return { ...state, countries: action.payload };
     default:
       throw new Error("Unknown action");
   }
@@ -34,10 +41,10 @@ function reducer(state, action) {
 function AuthProvider({ children }) {
   // It has value which needs to be shared with the rest of applications.
   // We are using useReducer to manage the global state.
-  const [{ user, isAuthenticated }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [
+    { user, categories, languages, countries, isAuthenticated },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   async function register(email, password) {
     try {
@@ -83,6 +90,18 @@ function AuthProvider({ children }) {
     }
   }
 
+  function updateCategory(newCategory) {
+    dispatch({ type: "updateCategory", payload: newCategory });
+  }
+
+  function updateLanguage(newLanguage) {
+    dispatch({ type: "updateLanguage", payload: newLanguage });
+  }
+
+  function updateCountry(newCountry) {
+    dispatch({ type: "updateCountry", payload: newCountry });
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -94,6 +113,12 @@ function AuthProvider({ children }) {
         fetchNews,
         sendFavourite,
         deleteNews,
+        updateCategory,
+        updateLanguage,
+        updateCountry,
+        categories,
+        languages,
+        countries,
       }}
     >
       {children}
