@@ -1,18 +1,21 @@
-import { useState } from "react";
-import styles from "./SelectionList.module.css"; // Import the CSS Module
+import styles from "./SelectionList.module.css";
 
-function SelectionList({ items, maxSelection, title }) {
-  const [selectedItems, setSelectedItems] = useState([]);
+function SelectionList({ items, maxSelection, title, selected, onSelect }) {
+  const isItemSelected = (item) => selected.includes(item);
+  const canSelectMore = selected.length < maxSelection;
 
   const toggleItem = (item) => {
-    if (selectedItems.includes(item)) {
-      setSelectedItems(selectedItems.filter((selected) => selected !== item));
-    } else if (selectedItems.length < maxSelection) {
-      setSelectedItems([...selectedItems, item]);
+    if (isItemSelected(item)) {
+      // Remove the item from the selection
+      const updatedSelection = selected.filter(
+        (selectedItem) => selectedItem !== item
+      );
+      onSelect(updatedSelection);
+    } else if (canSelectMore) {
+      // Add the item to the selection if not at the maximum selection limit
+      onSelect([...selected, item]);
     }
   };
-
-  const isItemSelected = (item) => selectedItems.includes(item);
 
   return (
     <div>
@@ -31,7 +34,7 @@ function SelectionList({ items, maxSelection, title }) {
         ))}
       </div>
       <p className={styles.selectedItems}>
-        Selected {title}: {selectedItems.join(", ")}
+        Selected {title}: {selected.join(", ")}
       </p>
     </div>
   );
