@@ -5,12 +5,12 @@ import {
   postFavourite,
   registerUser,
 } from "../utility/userService";
-import { toast } from "react-toastify";
 
 //  Create the setting for Authentication Context.
 const AuthContext = createContext();
 
 // Initial State for the reducer
+// user = { email: , password: , token: ,  category:   }
 const initialState = {
   user: null,
   isAuthenticated: false,
@@ -22,6 +22,8 @@ function reducer(state, action) {
     case "register":
       return { ...state, user: action.payload, isAuthenticated: true };
     case "login":
+      return { ...state, user: action.payload, isAuthenticated: true };
+    case "updateCategory":
       return { ...state, user: action.payload, isAuthenticated: true };
     default:
       throw new Error("Unknown action");
@@ -56,9 +58,9 @@ function AuthProvider({ children }) {
     }
   }
 
-  async function fetchNews() {
+  async function fetchNews(category) {
     try {
-      const response = await getNews(user.token);
+      const response = await getNews(user.token, category);
       return response.data.results;
     } catch (error) {
       console.log("Error :", error);
@@ -86,6 +88,7 @@ function AuthProvider({ children }) {
       value={{
         user,
         isAuthenticated,
+        dispatch,
         register,
         login,
         fetchNews,
