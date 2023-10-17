@@ -1,7 +1,17 @@
 import SelectionList from "../components/SelectionList";
+import { useAuth } from "../contexts/AuthenticationContext";
 
 function UserPreferences() {
-  const categories = [
+  const {
+    categories,
+    languages,
+    countries,
+    updateCategory,
+    updateLanguage,
+    updateCountry,
+  } = useAuth();
+
+  const categoriesList = [
     "Business",
     "Entertainment",
     "Environment",
@@ -15,7 +25,7 @@ function UserPreferences() {
     "Tourism",
     "World",
   ];
-  const languages = [
+  const languagesList = [
     "Afrikaans",
     "Albanian",
     "Amharic",
@@ -99,7 +109,7 @@ function UserPreferences() {
     "Welsh",
   ];
 
-  const countries = [
+  const countriesList = [
     "Afghanistan",
     "Albania",
     "Algeria",
@@ -258,9 +268,27 @@ function UserPreferences() {
 
   return (
     <>
-      <SelectionList items={categories} maxSelection={5} title="Categories" />
-      <SelectionList items={languages} maxSelection={5} title="Languages" />
-      <SelectionList items={countries} maxSelection={5} title="Countries" />
+      <SelectionList
+        items={categoriesList}
+        maxSelection={5}
+        title="Categories"
+        selected={categories}
+        onSelect={updateCategory}
+      />
+      <SelectionList
+        items={languagesList}
+        maxSelection={5}
+        title="Languages"
+        selected={languages}
+        onSelect={updateLanguage}
+      />
+      <SelectionList
+        items={countriesList}
+        maxSelection={5}
+        title="Countries"
+        selected={countries}
+        onSelect={updateCountry}
+      />
     </>
   );
 }
