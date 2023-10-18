@@ -50,9 +50,9 @@ function AuthProvider({ children }) {
 
   async function register(email, password) {
     try {
-      await registerUser(email, password);
+      const token = await registerUser(email, password);
       // If the registration is successful, update the user state
-      dispatch({ type: "register", payload: { email, password } });
+      dispatch({ type: "register", payload: { email, password, token } });
     } catch (err) {
       console.log("Error : ", err.message);
     }
