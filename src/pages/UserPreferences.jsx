@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import SelectionList from "../components/SelectionList";
 import { useAuth } from "../contexts/AuthenticationContext";
 
@@ -9,6 +10,7 @@ function UserPreferences() {
     updateCategory,
     updateLanguage,
     updateCountry,
+    updatePreferences,
   } = useAuth();
 
   const categoriesList = [
@@ -266,6 +268,11 @@ function UserPreferences() {
     "Zimbabwe",
   ];
 
+  const navigate = useNavigate();
+  const handleDone = () => {
+    updatePreferences();
+    navigate("/app/news");
+  };
   return (
     <>
       <SelectionList
@@ -289,6 +296,8 @@ function UserPreferences() {
         selected={countries}
         onSelect={updateCountry}
       />
+
+      <button onClick={handleDone}>Done</button>
     </>
   );
 }
