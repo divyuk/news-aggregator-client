@@ -19,6 +19,8 @@ axios.interceptors.response.use(
       } else if (status === 409) {
         // Handle 409 Conflict (e.g., email already registered)
         toast.error("This email is already registered.");
+      } else if (status === 422) {
+        toast.error(data.message);
       } else {
         // Handle other errors
         toast.error("An error occurred. Please try again.");
