@@ -15,7 +15,7 @@ function Login() {
     if (emailID && password) login(emailID, password);
   }
   useEffect(() => {
-    if (isAuthenticated) navigate("/app", { replace: true });
+    if (isAuthenticated) navigate("/app/news", { replace: true });
   }, [isAuthenticated, navigate]);
   return (
     <main>
