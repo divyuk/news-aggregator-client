@@ -4,8 +4,10 @@ import {
   loginUser,
   postFavourite,
   registerUser,
+  userNewsPreferences,
 } from "../utility/userService";
 
+import { categoryMapper } from "../utility/categoryMapper";
 //  Create the setting for Authentication Context.
 const AuthContext = createContext();
 
@@ -65,9 +67,9 @@ function AuthProvider({ children }) {
     }
   }
 
-  async function fetchNews(category) {
+  async function fetchNews() {
     try {
-      const response = await getNews(user.token, category);
+      const response = await getNews(user.token);
       return response.data.results;
     } catch (error) {
       console.log("Error :", error);
@@ -102,6 +104,21 @@ function AuthProvider({ children }) {
     dispatch({ type: "updateCountry", payload: newCountry });
   }
 
+  async function updatePreferences() {
+    try {
+      const { categoriesLowercase, languageCodes, countryCodes } =
+        categoryMapper(categories, languages, countries);
+      await userNewsPreferences(
+        user.token,
+        categoriesLowercase,
+        languageCodes,
+        countryCodes
+      );
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -119,6 +136,7 @@ function AuthProvider({ children }) {
         categories,
         languages,
         countries,
+        updatePreferences,
       }}
     >
       {children}
