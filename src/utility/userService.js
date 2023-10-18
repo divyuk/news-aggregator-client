@@ -3,10 +3,12 @@ import api from "./api";
 const BASEURL = import.meta.env.VITE_BASEURL;
 
 export async function registerUser(email, password) {
-  await api.post(`${BASEURL}/api/v1/users/register`, {
+  const response = await api.post(`${BASEURL}/api/v1/users/register`, {
     email,
     password,
   });
+  const token = response.data.token;
+  return token;
 }
 
 export async function loginUser(email, password) {
