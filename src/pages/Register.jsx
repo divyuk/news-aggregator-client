@@ -22,10 +22,10 @@ function Register() {
   useEffect(() => {
     if (isAuthenticated) {
       // Navigate to the homepage
-      navigate("/");
+      navigate("/app");
 
-      // Perform a hard reload of the homepage
-      window.location.reload(true);
+      // // Perform a hard reload of the homepage
+      // window.location.reload(true);
     }
   }, [isAuthenticated, navigate]);
 
