@@ -17,9 +17,8 @@ export async function loginUser(email, password) {
   const token = response.data.token;
   return token;
 }
-export async function getNews(token, category) {
+export async function getNews(token) {
   let baseUrl = `${BASEURL}/api/v1/news`;
-  if (category) baseUrl += `&category=${category}`;
   const response = await api.get(baseUrl, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -43,4 +42,27 @@ export async function deleteNews(token, id, type) {
       Authorization: `Bearer ${token}`,
     },
   });
+}
+
+// Function to put the preferences in Backend
+
+export async function userNewsPreferences(
+  token,
+  categories,
+  languages,
+  countries
+) {
+  await api.put(
+    `${BASEURL}/api/v1/users/newspreferences`,
+    {
+      categories,
+      countries,
+      languages,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 }
