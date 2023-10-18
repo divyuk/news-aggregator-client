@@ -5,11 +5,11 @@ import NewsCard from "./NewsCard";
 
 function NewsList() {
   const [newsData, setNewsData] = useState([]);
-  const { user, fetchNews } = useAuth();
+  const { fetchNews } = useAuth();
   useEffect(() => {
     async function getNewsData() {
       try {
-        const data = await fetchNews(user.category);
+        const data = await fetchNews();
         setNewsData(data);
       } catch (error) {
         console.log("Error in fetching", error);
