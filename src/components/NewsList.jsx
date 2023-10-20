@@ -20,7 +20,7 @@ function NewsList() {
   return (
     <ul className={styles.newsList}>
       {newsData.map((news, index) => (
-        <NewsCard key={index} news={news} />
+        <NewsCard key={index} news={news} className={styles.newscard} />
       ))}
     </ul>
   );
