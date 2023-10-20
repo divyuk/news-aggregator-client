@@ -3,6 +3,7 @@ import {
   deleteNewsAPI,
   getFavourites,
   getNews,
+  getRead,
   loginUser,
   postFavourite,
   postRead,
@@ -137,6 +138,14 @@ function AuthProvider({ children }) {
       console.log("Error: ", error);
     }
   }
+  async function getMyRead() {
+    try {
+      const response = await getRead(user.token);
+      return response.data;
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  }
 
   return (
     <AuthContext.Provider
@@ -158,6 +167,7 @@ function AuthProvider({ children }) {
         updatePreferences,
         getMyFavourites,
         sendRead,
+        getMyRead,
       }}
     >
       {children}
