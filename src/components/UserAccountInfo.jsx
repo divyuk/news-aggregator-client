@@ -20,7 +20,11 @@ function UserAccountInfo() {
         />
         {dropdown && (
           <div className={styles.dropdownContent}>
-            <Link to="favourite" className={styles.link}>
+            <Link
+              to="favourite"
+              className={styles.link}
+              onClick={toggleDropdown}
+            >
               Favourite
             </Link>
             <Link to="read" className={styles.link}>
