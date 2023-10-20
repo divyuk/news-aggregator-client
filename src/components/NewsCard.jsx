@@ -15,7 +15,6 @@ function NewsCard({ news }) {
   const checkAnimationClass = styles.CheckAnimation;
   const checkAnimateClass = isAnimatingCheck ? styles.animateCheck : "";
 
-  //! TODO : Need to work on the handleFav
   const handleFav = async () => {
     if (!isAnimatingFav) {
       await sendFavourite(article_id, news);
@@ -24,18 +23,6 @@ function NewsCard({ news }) {
     }
     setIsAnimatingFav(!isAnimatingFav);
   };
-
-  // const handleFav = async () => {
-  //   setIsAnimatingFav(!isAnimatingFav);
-  // };
-
-  // useEffect(() => {
-  //   const callFavourite = async () => {
-  //     if (isAnimatingFav) await sendFavourite(article_id, news);
-  //     else await deleteNews(article_id, "favourite");
-  //   };
-  //   callFavourite();
-  // }, [isAnimatingFav]);
 
   const handleCheck = () => {
     setIsAnimatingCheck(!isAnimatingCheck);
