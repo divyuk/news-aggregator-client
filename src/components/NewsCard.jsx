@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./NewsCard.module.css";
 import { useAuth } from "../contexts/AuthenticationContext";
 function NewsCard({ news }) {
-  const { article_id, title, link, description, content, pubDate } = news;
+  const { article_id, title, link, description, content } = news;
 
   const [read, setRead] = useState(false);
   const [isAnimatingFav, setIsAnimatingFav] = useState(false);
