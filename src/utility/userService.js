@@ -38,6 +38,14 @@ export async function postFavourite(token, id, news) {
   });
 }
 
+export async function postRead(token, id, news) {
+  await api.post(`${BASEURL}/api/v1/news/${id}/read`, news, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
 export async function getFavourites(token) {
   const response = await api.get(`${BASEURL}/api/v1/news/favourite`, {
     headers: {
