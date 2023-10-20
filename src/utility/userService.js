@@ -38,7 +38,7 @@ export async function postFavourite(token, id, news) {
   });
 }
 
-export async function deleteNews(token, id, type) {
+export async function deleteNewsAPI(token, id, type) {
   await api.delete(`${BASEURL}/api/v1/news/${id}/${type}`, {
     headers: {
       Authorization: `Bearer ${token}`,

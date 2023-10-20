@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import {
+  deleteNewsAPI,
   getNews,
   loginUser,
   postFavourite,
@@ -86,7 +87,7 @@ function AuthProvider({ children }) {
 
   async function deleteNews(id, type) {
     try {
-      await deleteNews(user.token, id, type);
+      await deleteNewsAPI(user.token, id, type);
     } catch (error) {
       console.log("Error : ", error);
     }
