@@ -1,0 +1,36 @@
+.dp {
+  /* Styles for the image */
+  height: 3.2rem;
+  cursor: pointer;
+}
+
+.container {
+  /* Styles for the container */
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: -160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  /* Add any other styles as needed */
+}
+
+.link {
+  color: #0078d4;
+  text-decoration: none;
+  padding: 8px 16px;
+  display: block;
+}
+
+.link:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
