@@ -5,6 +5,7 @@ import {
   getNews,
   loginUser,
   postFavourite,
+  postRead,
   registerUser,
   userNewsPreferences,
 } from "../utility/userService";
@@ -85,6 +86,13 @@ function AuthProvider({ children }) {
       console.log("Error : ", error);
     }
   }
+  async function sendRead(id, news) {
+    try {
+      await postRead(user.token, id, news);
+    } catch (error) {
+      console.log("Error : ", error);
+    }
+  }
 
   async function deleteNews(id, type) {
     try {
@@ -149,6 +157,7 @@ function AuthProvider({ children }) {
         countries,
         updatePreferences,
         getMyFavourites,
+        sendRead,
       }}
     >
       {children}
