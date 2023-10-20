@@ -1,12 +1,18 @@
 import styles from "./Favourites.module.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthenticationContext";
-import NewsCard from "./NewsCard";
+import Card from "./Card";
 
 function Favourties() {
   const [newsData, setNewsData] = useState([]);
   const { getMyFavourites } = useAuth();
+  const { deleteNews } = useAuth();
 
+  const handleDelete = async (article_id) => {
+    await deleteNews(article_id, "favourite");
+    const data = await getMyFavourites();
+    setNewsData(data);
+  };
   useEffect(() => {
     async function getNewsData() {
       try {
@@ -22,7 +28,7 @@ function Favourties() {
   return (
     <ul className={styles.newsList}>
       {newsData.map((news, index) => (
-        <NewsCard key={index} news={news} />
+        <Card key={index} news={news} handleDelete={handleDelete} />
       ))}
     </ul>
   );
