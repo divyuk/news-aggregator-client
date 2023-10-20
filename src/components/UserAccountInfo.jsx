@@ -27,10 +27,14 @@ function UserAccountInfo() {
             >
               Favourite
             </Link>
-            <Link to="read" className={styles.link}>
+            <Link to="read" className={styles.link} onClick={toggleDropdown}>
               Read
             </Link>
-            <Link to="settings" className={styles.link}>
+            <Link
+              to="settings"
+              className={styles.link}
+              onClick={toggleDropdown}
+            >
               Settings
             </Link>
           </div>
