@@ -8,7 +8,7 @@ function NewsCard({ news }) {
   const [isAnimatingFav, setIsAnimatingFav] = useState(false);
   const [isAnimatingCheck, setIsAnimatingCheck] = useState(false);
 
-  const { sendFavourite, deleteNews } = useAuth();
+  const { sendFavourite, deleteNews, sendRead } = useAuth();
 
   const heartAnimationClass = styles.HeartAnimation;
   const animateClass = isAnimatingFav ? styles.animate : "";
@@ -24,9 +24,15 @@ function NewsCard({ news }) {
     setIsAnimatingFav(!isAnimatingFav);
   };
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
+    if (!isAnimatingCheck) {
+      await sendRead(article_id, news);
+    } else {
+      await deleteNews(article_id, "read");
+    }
     setIsAnimatingCheck(!isAnimatingCheck);
   };
+
   return (
     <>
       <li className={styles.card}>
