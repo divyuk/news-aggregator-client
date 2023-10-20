@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import {
   deleteNewsAPI,
+  getFavourites,
   getNews,
   loginUser,
   postFavourite,
@@ -120,6 +121,15 @@ function AuthProvider({ children }) {
     }
   }
 
+  async function getMyFavourites() {
+    try {
+      const response = await getFavourites(user.token);
+      return response.data;
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -138,6 +148,7 @@ function AuthProvider({ children }) {
         languages,
         countries,
         updatePreferences,
+        getMyFavourites,
       }}
     >
       {children}
