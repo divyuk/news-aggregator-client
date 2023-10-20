@@ -38,6 +38,15 @@ export async function postFavourite(token, id, news) {
   });
 }
 
+export async function getFavourites(token) {
+  const response = await api.get(`${BASEURL}/api/v1/news/favourite`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+}
+
 export async function deleteNewsAPI(token, id, type) {
   await api.delete(`${BASEURL}/api/v1/news/${id}/${type}`, {
     headers: {
