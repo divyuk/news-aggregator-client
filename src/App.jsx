@@ -7,6 +7,7 @@ import AppLayout from "./pages/AppLayout";
 import NewsList from "./components/NewsList";
 import UserPreferences from "./pages/UserPreferences";
 import AuthGuard from "./components/AuthGuard";
+import Favourties from "./components/Favourties";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               />
               <Route path="news" element={<NewsList />} />
               <Route path="updatePreferences" element={<UserPreferences />} />
+              <Route path="favourite" element={<Favourties />} />
             </Route>
           </Route>
         </Routes>
