@@ -54,6 +54,14 @@ export async function getFavourites(token) {
   });
   return response.data;
 }
+export async function getRead(token) {
+  const response = await api.get(`${BASEURL}/api/v1/news/read`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+}
 
 export async function deleteNewsAPI(token, id, type) {
   await api.delete(`${BASEURL}/api/v1/news/${id}/${type}`, {
