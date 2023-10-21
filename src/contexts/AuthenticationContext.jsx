@@ -3,6 +3,7 @@ import {
   deleteNewsAPI,
   getFavourites,
   getNews,
+  getPreferences,
   getRead,
   loginUser,
   postFavourite,
@@ -130,6 +131,15 @@ function AuthProvider({ children }) {
     }
   }
 
+  async function getMyPreferences() {
+    try {
+      const response = await getPreferences(user.token);
+      return response.data;
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  }
+
   async function getMyFavourites() {
     try {
       const response = await getFavourites(user.token);
@@ -168,6 +178,7 @@ function AuthProvider({ children }) {
         getMyFavourites,
         sendRead,
         getMyRead,
+        getMyPreferences,
       }}
     >
       {children}
