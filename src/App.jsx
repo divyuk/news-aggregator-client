@@ -9,6 +9,7 @@ import UserPreferences from "./pages/UserPreferences";
 import AuthGuard from "./components/AuthGuard";
 import Favourties from "./components/Favourties";
 import Read from "./components/Read";
+import UpdatePreferences from "./components/UpdatePreferences";
 
 function App() {
   return (
@@ -25,9 +26,10 @@ function App() {
                 element={<Navigate replace to="updatePreferences" />}
               />
               <Route path="news" element={<NewsList />} />
-              <Route path="updatePreferences" element={<UserPreferences />} />
+              <Route path="preferences" element={<UserPreferences />} />
               <Route path="favourite" element={<Favourties />} />
               <Route path="read" element={<Read />} />
+              <Route path="updatePreferences" element={<UpdatePreferences />} />
             </Route>
           </Route>
         </Routes>
