@@ -71,6 +71,15 @@ export async function deleteNewsAPI(token, id, type) {
   });
 }
 
+export async function getPreferences(token) {
+  const response = await api.get(`${BASEURL}/api/v1/users/preferences`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+}
+
 // Function to put the preferences in Backend
 
 export async function userNewsPreferences(
