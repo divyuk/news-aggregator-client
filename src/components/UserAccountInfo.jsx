@@ -31,11 +31,11 @@ function UserAccountInfo() {
               Read
             </Link>
             <Link
-              to="settings"
+              to="updatePreferences"
               className={styles.link}
               onClick={toggleDropdown}
             >
-              Settings
+              Update Preferences
             </Link>
           </div>
         )}
