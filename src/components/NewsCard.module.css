@@ -22,6 +22,9 @@
   width: 70px;
   margin: 0 auto;
   cursor: pointer;
+  position: relative;
+  left: 10px;
+  top: 27px;
 }
 
 .animate {
@@ -48,6 +51,9 @@
   margin: 0 auto;
   cursor: pointer;
   transition: background-image 0.3s;
+  position: relative;
+  left: 10px;
+  top: 7px;
 }
 
 .animateCheck {
@@ -70,11 +76,11 @@
   color: #0077cc;
   font-weight: bold;
   margin-bottom: 10px;
-  display: block;
+  display: inline;
   padding-left: 15px;
 }
 
-.button {
+/* .button {
   background-color: #0077cc;
   color: #fff;
   padding: 10px 20px;
@@ -85,6 +91,27 @@
 
 .button:hover {
   background-color: #005599;
+} */
+
+/* Your CSS module (e.g., Button.module.css) */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0077cc; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 6px; /* Rounded corners */
+  font-size: 15px; /* Font size */
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s; /* Add smooth transitions */
+
+  /* Add a box shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background-color: #005599; /* Slightly darker background on hover */
+  color: #fff; /* Text color on hover remains white */
 }
 
 .description {
