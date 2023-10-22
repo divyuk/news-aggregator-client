@@ -53,9 +53,9 @@ function AuthProvider({ children }) {
     dispatch,
   ] = useReducer(reducer, initialState);
 
-  async function register(email, password) {
+  async function register(email, password, name, username) {
     try {
-      const token = await registerUser(email, password);
+      const token = await registerUser(email, password, name, username);
       // If the registration is successful, update the user state
       dispatch({ type: "register", payload: { email, password, token } });
     } catch (err) {
