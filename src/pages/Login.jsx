@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthenticationContext";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import styles from "./Login.module.css";
 
@@ -22,31 +22,35 @@ function Login() {
     <main className={styles["login-page"]}>
       <ToastContainer />
       <form onSubmit={handleSubmit} className={styles["login-form"]}>
-        <h2 className={styles["login-title"]}>Login</h2>
-        <label htmlFor="email" className={styles["login-label"]}>
-          Email
-        </label>
+        <h2 className={styles["login-title"]}>One News</h2>
         <input
           id="email"
           type="email"
           value={emailID}
           onChange={(e) => setEmailID(e.target.value)}
           className={styles["login-input"]}
+          placeholder="Email"
         />
-
-        <label htmlFor="password" className={styles["login-label"]}>
-          Password
-        </label>
         <input
           id="password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className={styles["login-input"]}
+          placeholder="Password"
         />
         <button type="submit" className={styles["login-button"]}>
           Submit
         </button>
+        {/* Section for No Account */}
+        <section className={styles["register"]}>
+          <p className={styles["account"]}>
+            Don&apos;t have an account?{" "}
+            <NavLink to="/register" className={styles.navlink}>
+              Register
+            </NavLink>
+          </p>
+        </section>
       </form>
     </main>
   );
