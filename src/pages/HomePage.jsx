@@ -1,4 +1,3 @@
-import PageNav from "../components/PageNav";
 import styles from "./HomePage.module.css";
 import Login from "./Login";
 
