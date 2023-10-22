@@ -17,8 +17,8 @@ axios.interceptors.response.use(
         // Handle 403 Forbidden (e.g., redirect to access denied)
         toast.error("Forbidden");
       } else if (status === 409) {
-        // Handle 409 Conflict (e.g., email already registered)
-        toast.error("This email is already registered.");
+        // Handle 409 Conflict
+        toast.error(data.message);
       } else if (status === 422) {
         toast.error(data.message);
       } else {
