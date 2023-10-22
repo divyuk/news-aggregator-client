@@ -13,7 +13,7 @@ function UserAccountInfo() {
     <>
       <div className={styles.container}>
         <img
-          src="/user2.png"
+          src="/userc.png"
           alt="user display profile"
           className={styles.dp}
           onClick={toggleDropdown}

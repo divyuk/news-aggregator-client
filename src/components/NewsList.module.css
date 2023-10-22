@@ -1,26 +1,21 @@
-/* Your CSS module (e.g., NewsList.module.css) */
 .newsList {
-  list-style: none; /* Remove bullet points from the list */
-  padding: 0; /* Remove default padding */
+  list-style: none;
+  padding: 0;
 }
 
-/* Style for each NewsCard item within the list */
 .newsList li {
-  margin-bottom: 20px; /* Add space between each NewsCard item */
+  margin-bottom: 20px;
 }
 
-/* Example styles for NewsCard components (customize as needed) */
 .newscard {
-  background-color: #fff; /* Background color for each NewsCard */
-  border: 1px solid #ccc; /* Border for each NewsCard */
-  padding: 10px; /* Padding around each NewsCard */
-  border-radius: 8px; /* Add rounded corners to NewsCard */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  transition: transform 0.2s; /* Add a transform animation on hover */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
 
 .newsList .newscard:hover {
-  transform: scale(1.02); /* Slight scale-up on hover for the NewsCard */
+  transform: scale(1.02);
 }
-
-/* Customize the styles further based on your design preferences */

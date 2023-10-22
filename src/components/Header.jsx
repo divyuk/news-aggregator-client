@@ -8,7 +8,7 @@ function Header() {
     <>
       <div className={styles.header}>
         <Logo />
-        <Heading />
+        {/* <Heading /> */}
         <UserAccountInfo />
       </div>
       {/* <Preferences /> */}

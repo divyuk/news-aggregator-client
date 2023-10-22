@@ -10,7 +10,9 @@ axios.interceptors.response.use(
     if (error.response) {
       // Extract error status and data from the API response
       const { status, data } = error.response;
-      if (status === 401) {
+      if (status === 400) {
+        toast.error(data.message);
+      } else if (status === 401) {
         // Handle 401 Unauthorized (e.g., redirect to login)
         toast.error("Incorrect email or password");
       } else if (status === 403) {

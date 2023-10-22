@@ -9,7 +9,7 @@ function Logo() {
   };
   return (
     <img
-      src="/logo1.svg"
+      src="/Onredcrop.png"
       alt="Gossiping World"
       className={logo}
       onClick={handleHome}
