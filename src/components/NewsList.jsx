@@ -13,13 +13,14 @@ function NewsList() {
       try {
         const data = await fetchNews(page);
         dataRef.current = data;
-        setNewsData(data.results);
+        // setNewsData(data.results);
+        setNewsData((prev) => [...prev, ...data.results]);
       } catch (error) {
         console.log("Error in fetching", error);
       }
     }
     getNewsData();
-  }, [fetchNews, page]);
+  }, [page]);
 
   const handleInfiniteScroll = () => {
     try {
