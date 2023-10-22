@@ -5,48 +5,79 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(255, 255, 255);
   font-family: "Times New Roman", serif;
 }
 
 .login-form {
-  background-color: rgb(226, 226, 226);
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   max-width: 400px;
   width: 100%;
+  height: 300px;
   text-align: center;
 }
 
 .login-title {
-  font-size: 24px;
-  color: #9d9082;
+  font-size: 34px;
+  color: #292828;
   margin-bottom: 20px;
-}
-
-.login-label {
-  font-size: 16px;
-  color: #333;
+  font-family: "Mouse Memoirs";
+  word-spacing: 4px;
+  letter-spacing: 6px;
 }
 
 .login-input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin: 10px 0;
-  border: 2px solid #c1bcb7;
-  border-radius: 6px;
+  border: 1px solid #e4e3e2;
+  border-radius: 2px;
   box-sizing: border-box;
 }
 
 .login-button {
-  background-color: #3366cc;
+  width: 80%;
+  background-color: #407bf1;
   color: #fff;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+  margin-top: 32px;
 }
 
 .login-button:hover {
   background-color: #2857b0;
+}
+
+.register {
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -20px;
+}
+.account {
+  font-size: 15px;
+  letter-spacing: 0px;
+  font-family: "Delius";
+}
+.navlink {
+  text-decoration: none;
+  font-size: 15px;
+  color: #2c69ec;
+  margin-right: 20px;
+  transition: color 0.2s;
+}
+
+.navlink:hover {
+  color: #0a07b9;
 }
