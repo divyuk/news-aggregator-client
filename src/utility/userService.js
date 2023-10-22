@@ -19,8 +19,9 @@ export async function loginUser(email, password) {
   const token = response.data.token;
   return token;
 }
-export async function getNews(token) {
+export async function getNews(token, page) {
   let baseUrl = `${BASEURL}/api/v1/news`;
+  if (page) baseUrl = `${BASEURL}/api/v1/news/${page}`;
   const response = await api.get(baseUrl, {
     headers: {
       Authorization: `Bearer ${token}`,
