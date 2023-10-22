@@ -72,10 +72,10 @@ function AuthProvider({ children }) {
     }
   }
 
-  async function fetchNews() {
+  async function fetchNews(page) {
     try {
-      const response = await getNews(user.token);
-      return response.data.results;
+      const response = await getNews(user.token, page);
+      return response.data;
     } catch (error) {
       console.log("Error :", error);
     }
