@@ -17,6 +17,9 @@ function NewsList() {
     }
     getNewsData();
   }, [fetchNews]);
+  if (newsData.length == 0) {
+    return <h1>Nothing Found</h1>;
+  }
   return (
     <ul className={styles.newsList}>
       {newsData.map((news, index) => (
