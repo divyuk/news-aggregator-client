@@ -37,6 +37,9 @@ function UserAccountInfo() {
             >
               Update Preferences
             </Link>
+            <Link to="logout" className={styles.link} onClick={toggleDropdown}>
+              Log Out
+            </Link>
           </div>
         )}
       </div>

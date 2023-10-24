@@ -10,6 +10,7 @@ import {
   postRead,
   registerUser,
   userNewsPreferences,
+  logOutUser,
 } from "../utility/userService";
 
 import { categoryMapper } from "../utility/categoryMapper";
@@ -33,6 +34,12 @@ function reducer(state, action) {
       return { ...state, user: action.payload, isAuthenticated: true };
     case "login":
       return { ...state, user: action.payload, isAuthenticated: true };
+    case "logout":
+      return {
+        ...state,
+        user: { ...state.user, token: undefined },
+        isAuthenticated: false,
+      };
     case "updateCategory":
       return { ...state, categories: action.payload };
     case "updateLanguage":
@@ -157,6 +164,17 @@ function AuthProvider({ children }) {
     }
   }
 
+  async function logout() {
+    try {
+      await logOutUser(user.token);
+      dispatch({
+        type: "logout",
+        payload: { token: undefined },
+      });
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  }
   return (
     <AuthContext.Provider
       value={{
@@ -179,6 +197,7 @@ function AuthProvider({ children }) {
         sendRead,
         getMyRead,
         getMyPreferences,
+        logout,
       }}
     >
       {children}

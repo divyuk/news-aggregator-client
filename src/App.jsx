@@ -10,6 +10,7 @@ import AuthGuard from "./components/AuthGuard";
 import Favourties from "./components/Favourties";
 import Read from "./components/Read";
 import UpdatePreferences from "./components/UpdatePreferences";
+import LogOut from "./pages/LogOut";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="favourite" element={<Favourties />} />
               <Route path="read" element={<Read />} />
               <Route path="updatePreferences" element={<UpdatePreferences />} />
+              <Route path="logout" element={<LogOut />} />
             </Route>
           </Route>
         </Routes>
