@@ -1,2 +1,3 @@
-# news-aggregator-client
-The frontend side of the news aggregator backend
+# One News
+
+The One News App where you know gossips about the world.
