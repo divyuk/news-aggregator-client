@@ -32,22 +32,25 @@ function Read() {
     <>
       {loading ? (
         <Loading />
-      ) : newsData.length === 0 ? (
-        <h2 className={styles.title}>
-          Reads are Empty!! Click the check to save in Reads!
-        </h2>
       ) : (
-        <ul className={styles.newsList}>
-          {newsData.map((news, index) => (
-            <Card
-              key={index}
-              news={news}
-              className={styles.newscard}
-              handleDelete={handleDelete}
-            />
-          ))}
-        </ul>
+        newsData.length === 0 && (
+          <h2 className={styles.title}>
+            Reads are Empty!! Click the check to save in Reads!
+          </h2>
+        )
       )}
+
+      <ul className={styles.newsList}>
+        {newsData.map((news, index) => (
+          <Card
+            key={index}
+            news={news}
+            className={styles.newscard}
+            handleDelete={handleDelete}
+          />
+        ))}
+      </ul>
+      {newsData.length > 0 && loading && <Loading />}
     </>
   );
 }

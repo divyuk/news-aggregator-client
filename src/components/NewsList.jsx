@@ -57,22 +57,17 @@ function NewsList() {
     <>
       {loading ? (
         <Loading />
-      ) : newsData.length === 0 ? (
-        <h2>Nothing with these Preferences</h2>
       ) : (
-        <ul className={styles.newsList}>
-          {newsData.map((news, index) => (
-            <NewsCard key={index} news={news} className={styles.newscard} />
-          ))}
-        </ul>
+        newsData.length === 0 && (
+          <h2 className={styles.title}>Nothing with these Preferences</h2>
+        )
       )}
-
-      {/* <ul className={styles.newsList}>
+      <ul className={styles.newsList}>
         {newsData.map((news, index) => (
           <NewsCard key={index} news={news} className={styles.newscard} />
         ))}
       </ul>
-      {loading && <Loading />} */}
+      {newsData.length > 0 && loading && <Loading />}
     </>
   );
 }

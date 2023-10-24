@@ -32,22 +32,25 @@ function Favourties() {
     <>
       {loading ? (
         <Loading />
-      ) : newsData.length === 0 ? (
-        <h2 className={styles.title}>
-          Favourites are Empty!! Click the heart to save in Favourites!
-        </h2>
       ) : (
-        <ul className={styles.newsList}>
-          {newsData.map((news, index) => (
-            <Card
-              key={index}
-              news={news}
-              className={styles.newscard}
-              handleDelete={handleDelete}
-            />
-          ))}
-        </ul>
+        newsData.length === 0 && (
+          <h2 className={styles.title}>
+            Favourites are Empty!! Click the heart to save in Favourites!
+          </h2>
+        )
       )}
+
+      <ul className={styles.newsList}>
+        {newsData.map((news, index) => (
+          <Card
+            key={index}
+            news={news}
+            className={styles.newscard}
+            handleDelete={handleDelete}
+          />
+        ))}
+      </ul>
+      {newsData.length > 0 && loading && <Loading />}
     </>
   );
 }
