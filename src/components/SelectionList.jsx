@@ -25,12 +25,13 @@ function SelectionList({ items, maxSelection, title, selected, onSelect }) {
 
   return (
     <div>
-      <h2>{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
       <input
         type="text"
         placeholder={`Search ${title}`}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        className={styles.search}
       />
       <div className={styles.container}>
         {filteredItems.map((item, index) => (
@@ -45,9 +46,9 @@ function SelectionList({ items, maxSelection, title, selected, onSelect }) {
           </button>
         ))}
       </div>
-      <p className={styles.selectedItems}>
+      {/* <p className={styles.selectedItems}>
         Selected {title}: {selected.join(", ")}
-      </p>
+      </p> */}
     </div>
   );
 }

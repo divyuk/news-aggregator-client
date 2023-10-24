@@ -11,22 +11,28 @@ function Card({ news, handleDelete }) {
   return (
     <>
       <li className={styles.card}>
-        <h2>{title}</h2>
-        <a href={link} rel="noopener noreferrer" target="_blank">
+        <h2 className={styles.title}>{title}</h2>
+        <a
+          className={styles.link}
+          href={link}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           News Link
         </a>
-        <p>{description}</p>
-        {read && <p>{content}</p>}
+        <p className={styles.description}>{description}</p>
+        {read && <p className={styles.content}>{content}</p>}
       </li>
 
-      <button onClick={() => setRead(!read)}>
+      <button className={styles.button} onClick={() => setRead(!read)}>
         {read ? "Read Less" : "Read More"}
       </button>
-
-      <RiDeleteBin6Line
-        className={styles.delete}
-        onClick={() => handleDelete(article_id)}
-      />
+      <section className={styles.container}>
+        <RiDeleteBin6Line
+          className={styles.delete}
+          onClick={() => handleDelete(article_id)}
+        />
+      </section>
     </>
   );
 }

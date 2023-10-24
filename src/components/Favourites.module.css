@@ -1,0 +1,31 @@
+.newsList {
+  list-style: none;
+  padding: 0;
+}
+
+.newsList li {
+  margin-bottom: 20px;
+}
+
+.newscard {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.newsList .newscard:hover {
+  transform: scale(1.02);
+}
+
+.title {
+  margin-top: 70px;
+  font-family: "Special Elite";
+  font-size: 2em;
+  line-height: 1.1;
+  letter-spacing: 5px;
+  word-spacing: 0.5em;
+  color: rgb(216, 59, 210);
+}

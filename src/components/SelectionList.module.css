@@ -23,3 +23,22 @@
   background-color: #4caf50; /* Green */
   color: white; /* White text for selected items */
 }
+
+.title {
+  font-family: "Pathway Extreme";
+  font-size: 2em;
+  line-height: 1.1;
+  letter-spacing: 2px;
+
+  color: rgb(254, 204, 27);
+}
+
+.search {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  width: 100%;
+  max-width: 250px;
+}

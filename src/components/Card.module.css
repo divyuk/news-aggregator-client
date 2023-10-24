@@ -1,9 +1,88 @@
+.card {
+  list-style: none;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Pathway Extreme";
+  margin-bottom: 10px;
+  color: #333;
+  line-height: 1.5;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline;
+  padding-left: 15px;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #555;
+  padding: 15px;
+  text-align: left;
+}
+
+.content {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: justify;
+  transition: background-color 0.2s, color 0.2s;
+  font-family: "Roboto";
+  word-spacing: 0.2em;
+}
+
+.content:hover {
+  background-color: #e0e0e0;
+  color: #222;
+}
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0077cc; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 6px; /* Rounded corners */
+  font-size: 15px; /* Font size */
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s; /* Add smooth transitions */
+
+  /* Add a box shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background-color: #005599; /* Slightly darker background on hover */
+  color: #fff; /* Text color on hover remains white */
+}
+
+.container {
+  /* border: 2px solid red; */
+  display: inline;
+  margin: 26px;
+  padding: 26px;
+  position: relative;
+  top: 5px;
+}
+
 .delete {
   cursor: pointer;
   font-size: 24px;
   color: #ff5555;
   transition: color 0.2s;
-  margin-left: 10px;
+  margin-left: 77px;
 }
 
 .delete:hover {

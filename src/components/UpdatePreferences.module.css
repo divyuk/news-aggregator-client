@@ -1,0 +1,26 @@
+.title {
+  font-family: "Special Elite";
+  font-size: 4em;
+  line-height: 1.1;
+  letter-spacing: 5px;
+  color: rgb(107, 217, 104);
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.done {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.done:hover {
+  background-color: #0056b3;
+}

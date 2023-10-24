@@ -9,6 +9,7 @@ import {
 
 import { categoryDeMapper } from "../utility/categoryDemapper";
 import { useNavigate } from "react-router-dom";
+import styles from "./UpdatePreferences.module.css";
 
 function UpdatePreferences() {
   const {
@@ -64,7 +65,7 @@ function UpdatePreferences() {
   };
   return (
     <div>
-      <h1>Update Preferences</h1>
+      <h1 className={styles.title}>Update Preferences</h1>
       {preferences.length == 0 ? (
         <h1>Loading...</h1>
       ) : (
@@ -94,7 +95,11 @@ function UpdatePreferences() {
           />
         </>
       )}
-      <button onClick={handleDone}>Done</button>
+      <section className={styles["button-container"]}>
+        <button className={styles.done} onClick={handleDone}>
+          Done
+        </button>
+      </section>
     </div>
   );
 }
